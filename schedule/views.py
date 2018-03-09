@@ -32,6 +32,7 @@ from schedule.utils import (
 )
 
 
+
 class CalendarViewPermissionMixin(object):
     @classmethod
     def as_view(cls, **initkwargs):
@@ -100,6 +101,7 @@ class CalendarByPeriodsView(CalendarMixin, DetailView):
         else:
             date = timezone.now()
         event_list = GET_EVENTS_FUNC(self.request, calendar)
+
 
         local_timezone = timezone.get_current_timezone()
         period = period_class(event_list, date, tzinfo=local_timezone)
